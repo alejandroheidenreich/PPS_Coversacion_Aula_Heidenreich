@@ -1,0 +1,15 @@
+a {
+    color: black;
+}
+
+.list-md {
+    background-color: var(--ion-color-secondary);
+}
+
+.selected {
+    --background: var(--ion-color-danger-tint);
+}
+
+.notselected {
+    --background: var(--ion-color-secondary);
+}
