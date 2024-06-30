@@ -38,10 +38,62 @@ b {
   border-radius: 50%;
 }
 
-.selected {
-  --background: var(--ion-color-success);
+.container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  /* Divide la pantalla en dos filas iguales */
+  height: 100%;
 }
 
-.notselected {
-  --background: var(--ion-color-tertiary);
+
+.top:active,
+.bottom:active {
+  transform: scale(0.95);
+  /* Escalar ligeramente cuando se hace clic */
+}
+
+.top,
+.bottom {
+  display: flex;
+  justify-content: center;
+  /* Centra horizontalmente el contenido */
+  align-items: center;
+  /* Centra verticalmente el contenido */
+  border: 2px solid #999;
+  /* Borde de 2px sólido */
+  border-radius: 8px;
+  /* Bordes redondeados */
+  box-shadow: 2px 2px 5px #aaa;
+  /* Sombra */
+}
+
+.top {
+  background-color: var(--ion-color-danger);
+  /* Color de fondo para la primera fila */
+}
+
+.bottom {
+  background-color: var(--ion-color-warning);
+  /* Color de fondo para la segunda fila */
+}
+
+.contenedor {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+
+.centradoTop {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centradoBot {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

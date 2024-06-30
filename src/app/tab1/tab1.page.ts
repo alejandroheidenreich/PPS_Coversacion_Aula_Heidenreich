@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,31 +9,19 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-
-  public selectedIdioma: string = "";
-  public selectedTema: string = "";
-  public audio: HTMLAudioElement = new Audio();
-
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
   ngOnInit(): void {
 
   }
 
-  selectIdioma(idioma: string) {
-    this.selectedIdioma = idioma;
+
+  chat1() {
+    this.router.navigate(['tabs/tab2']);
   }
 
-  selectTema(tema: string) {
-    this.selectedTema = tema;
+  chat2() {
+    this.router.navigate(['tabs/tab3']);
   }
-
-  play(select: string) {
-    console.log(select);
-    this.audio.pause();
-    this.audio = new Audio(`assets/audios/${select}_${this.selectedIdioma}.mp3`);
-    this.audio.play()
-  }
-
 
 
   logOut() {

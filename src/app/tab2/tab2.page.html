@@ -1,17 +1,55 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-grid [fixed]="true">
+
+      <ion-row class="ion-justify-content-around">
+        <ion-col size="2">
+          <ion-button size="large" (click)="back()">
+            <ion-icon slot="icon-only" name="arrow-back-circle"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="7" offset="3">
+          <ion-img src="assets/4a.png" alt="pps" style="width: 30%;"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding" color="danger">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card color="danger" *ngIf="usuarioLogeado" class="cardContainer">
+    <ion-card-content id="contendedorMensajes" class="contendedorMensajes">
+      <div *ngFor="let mensaje of mensajes; let  i = index"
+        [ngClass]="{'enviado': usuarioLogeado.email === mensaje.emisor, 'recibido': usuarioLogeado.email !== mensaje.emisor}"
+        class="msj p-2">
+        <span style="font-size:medium; font-weight: bold;">@if(usuarioLogeado.email != mensaje.emisor){
+          {{mensaje.emisor}}
+          }
+          {{convertirAFechaString(mensaje.fecha)}}</span>
+        {{mensaje.texto}}
+        @if(mensajes.length == i+1){
+        {{scrollToTheLastElementByClassName()}}
+        }
+      </div>
+    </ion-card-content>
+    @if(mensajes.length > 0){
+    {{scrollToTheLastElementByClassName()}}
+    }
+  </ion-card>
+
 </ion-content>
+<br>
+
+<ion-footer color="secondary">
+  <ion-toolbar color="secondary">
+    <ion-item lines="none" color="secondary">
+      <ion-input maxlength="21" color="secondary" [(ngModel)]="nuevoMensaje.texto" placeholder="Ingrese su mensaje"
+        style="font-size:medium; font-weight: bold;"></ion-input>
+      <ion-button (click)="enviarMensaje()">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

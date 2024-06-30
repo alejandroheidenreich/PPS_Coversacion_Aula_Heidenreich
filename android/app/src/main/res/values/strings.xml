@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Tabla Dinámica</string>
-    <string name="title_activity_main">Tabla Dinámica</string>
-    <string name="package_name">pps.tab.din</string>
-    <string name="custom_url_scheme">pps.tab.din</string>
+    <string name="app_name">Conversando en el aula</string>
+    <string name="title_activity_main">Conversando en el aula</string>
+    <string name="package_name">pps.con.aul</string>
+    <string name="custom_url_scheme">pps.con.aul</string>
 </resources>

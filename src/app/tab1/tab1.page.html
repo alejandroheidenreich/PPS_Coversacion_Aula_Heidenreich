@@ -1,158 +1,45 @@
-<ion-header [translucent]="true" color="secondary">
+<ion-header [translucent]="true">
   <ion-toolbar color="secondary">
     <ion-row class="ion-justify-content-between">
-      <ion-col size="6">
+      <ion-col size="9">
 
-        <ion-title>
+        <ion-title style="font-size:large; font-weight: bold;">
           <br>
-          TABLA DIDÁCTICA
+          Coversando en de Aula
 
+          <br>
         </ion-title>
+        <br>
       </ion-col>
-      <ion-col size="6" sizeMd="3" class="ion-align-items-end">
-        <ion-button (click)="logOut()" id="cerrar">
-          <ion-icon name="power"></ion-icon>
-          <ion-label> . Cerrar Sesión</ion-label>
+      <ion-col size="3" sizeMd="2" style="top: 0.5rem;">
+        <ion-button (click)="logOut()" id="cerrar" shape="round">
+          <ion-icon name="power" slot="icon-only"></ion-icon>
+
         </ion-button>
 
       </ion-col>
     </ion-row>
+
   </ion-toolbar>
 </ion-header>
+<ion-loading trigger="cerrar" message="Cerrando..." [duration]="3000" spinner="circles"></ion-loading>
 
-<ion-content [fullscreen]="true" color="primary" class="ion-text-center">
+<ion-content [fullscreen]="true" color="secondary">
+  <ion-row class="container">
+    <ion-col size="12" class="top text-center" (click)="chat1()">
+      <div class="contenedor">
+        <img src="assets/4a.png" style="width: 80%;" alt="4a">
+        <div class="centradoTop"></div>
+      </div>
+    </ion-col>
+    <ion-col size="12" class="bottom text-center" (click)="chat2()">
+      <div class="contenedor">
+        <img src="assets/4b.png" style="width: 80%;" alt="4b">
+        <div class="centradoBot">
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
 
-  <ion-loading trigger="cerrar" message="Cerrando..." [duration]="3000" spinner="circles"></ion-loading>
-  <ion-grid class="ion-text-center">
 
-    <br>
-    <ion-row class="ion-justify-content-around">
-      <ion-col size=" 4" sizeMd="2">
-        <ion-button (click)="selectIdioma('esp')" [ngClass]="selectedIdioma === 'esp' ? 'selected' : 'notselected'">
-          <img src="assets/españa.png" alt="esp">
-        </ion-button>
-      </ion-col>
-      <ion-col size="4" sizeMd="2">
-        <ion-button (click)="selectIdioma('usa')" [ngClass]="selectedIdioma === 'usa' ? 'selected' : 'notselected'">
-          <img src="assets/usa.png" alt="esp">
-        </ion-button>
-      </ion-col>
-      <ion-col size="4" sizeMd="2">
-        <ion-button (click)="selectIdioma('por')" [ngClass]="selectedIdioma === 'por' ? 'selected' : 'notselected'">
-          <img src="assets/portugal.png" alt="esp">
-        </ion-button>
-      </ion-col>
-      <!-- </ion-row> -->
-
-      <br>
-      <!-- <ion-row class="ion-justify-content-around"> -->
-      <ion-col size="4" sizeMd="2">
-        <ion-button (click)="selectTema('colores')" [ngClass]="selectedTema === 'colores' ? 'selected' : 'notselected'">
-          <img src="assets/colores.png" alt="esp">
-        </ion-button>
-      </ion-col>
-      <ion-col size="4" sizeMd="2">
-        <ion-button (click)="selectTema('numeros')" [ngClass]="selectedTema === 'numeros' ? 'selected' : 'notselected'">
-          <img src="assets/numeros.png" alt="esp">
-        </ion-button>
-      </ion-col>
-      <ion-col size="4" sizeMd="2">
-        <ion-button (click)="selectTema('animales')"
-          [ngClass]="selectedTema === 'animales' ? 'selected' : 'notselected'">
-          <img src="assets/animales.png" alt="esp">
-        </ion-button>
-      </ion-col>
-
-      @if (selectedTema !== '' && selectedIdioma !== '') {
-
-      <ion-col size="5" sizeMd="2">
-        <ion-button color="tertiary"
-          (click)="play(selectedTema === 'animales'? 'gato': selectedTema === 'numeros'? 'uno' : 'azul')">
-          @if (selectedTema =='animales') {
-          <img src="assets/gato.png" alt="esp" style="width: 80%;">
-          }
-          @else if (selectedTema =='numeros') {
-          <img src="assets/uno.png" alt="esp" style="width: 75%;">
-          }
-          @else if (selectedTema =='colores') {
-          <img src="assets/azul.png" alt="esp" style="width: 75%;">
-          }
-        </ion-button>
-      </ion-col>
-      <ion-col size="5" sizeMd="2">
-        <ion-button color="tertiary"
-          (click)="play(selectedTema === 'animales'? 'pato': selectedTema === 'numeros'? 'dos' : 'amarillo')">
-          @if (selectedTema == 'animales') {
-          <img src="assets/pato.png" alt="esp" style="width: 60%;">
-          }
-          @else if (selectedTema =='numeros') {
-          <img src="assets/dos.png" alt="esp" style="width: 65%;">
-          }
-          @else if (selectedTema =='colores') {
-          <img src="assets/amarillo.png" alt="esp" style="width: 65%;">
-          }
-        </ion-button>
-      </ion-col>
-      <ion-col size="5" sizeMd="2">
-        <ion-button color="tertiary"
-          (click)="play(selectedTema === 'animales'? 'cebra': selectedTema === 'numeros'? 'tres' : 'rojo')">
-          @if (selectedTema =='animales') {
-          <img src="assets/zebra.png" alt="esp" style="width: 80%;">
-          }
-          @else if (selectedTema =='numeros') {
-          <img src="assets/tres.png" alt="esp" style="width: 65%;">
-          }
-          @else if (selectedTema =='colores') {
-          <img src="assets/rojo.png" alt="esp" style="width: 65%;">
-          }
-        </ion-button>
-      </ion-col>
-      <ion-col size="5" sizeMd="2">
-        <ion-button color="tertiary"
-          (click)="play(selectedTema === 'animales'? 'lobo': selectedTema === 'numeros'? 'cuatro' : 'verde')">
-          @if (selectedTema =='animales') {
-          <img src="assets/lobo.png" alt="esp" style="width: 60%;">
-          }
-          @else if (selectedTema =='numeros') {
-          <img src="assets/cuatro.png" alt="esp" style="width: 65%;">
-          }
-          @else if (selectedTema =='colores') {
-          <img src="assets/verde.png" alt="esp" style="width: 65%;">
-          }
-        </ion-button>
-      </ion-col>
-      <ion-col size="5" sizeMd="2">
-        <ion-button color="tertiary"
-          (click)="play(selectedTema === 'animales'? 'jirafa': selectedTema === 'numeros'? 'cinco' : 'violeta')">
-          @if (selectedTema =='animales') {
-          <img src="assets/jirafa.png" alt="esp" style="width: 75%;">
-          }
-          @else if (selectedTema =='numeros') {
-          <img src="assets/cinco.png" alt="esp" style="width: 65%;">
-          }
-          @else if (selectedTema =='colores') {
-          <img src="assets/violeta.png" alt="esp" style="width: 65%;">
-          }
-        </ion-button>
-      </ion-col>
-      }
-      @else {
-      @if (selectedTema == '' && selectedIdioma == '') {
-
-      <h1>NO SELECCIONASTE IDIOMA NI TEMA</h1>
-      }
-      @else if (selectedTema == '') {
-      <h1>NO SELECCIONASTE TEMA</h1>
-      }
-      @else if (selectedIdioma == '') {
-      <h1>NO SELECCIONASTE IDIOMA</h1>
-      }
-      }
-    </ion-row>
-  </ion-grid>
-  <br>
-
-  <ion-grid>
-
-  </ion-grid>
 </ion-content>

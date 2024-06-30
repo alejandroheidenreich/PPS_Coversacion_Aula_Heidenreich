@@ -26,18 +26,24 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 @font-face {
-    font-family: 'hello_twins_-_personal_useRg';
-    src: url('assets/fonts/hellotwinsdemo-webfont.woff2') format('woff2'),
-        url('assets/fonts/hellotwinsdemo-webfont.woff') format('woff');
+    font-family: 'nixie_oneregular';
+    src: url('assets/fonts/nixieone-webfont.woff2') format('woff2'),
+        url('assets/fonts/nixieone-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
+ion-loading {
+    --background: var(--ion-color-primary) !important;
+    --spinner-color: var(--ion-color-secondarty) !important;
+}
+
+
 * {
     --ion-background-color: var(--ion-color-primary);
     color: black;
     // font-family: serif;
-    font-family: 'hello_twins_-_personal_useRg';
+    font-family: 'nixie_oneregular';
     font-size: large;
 }

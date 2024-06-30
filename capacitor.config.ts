@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'pps.tab.din',
-  appName: 'Tabla Dinámica',
+  appId: 'pps.con.aul',
+  appName: 'Conversando en el aula',
   webDir: 'www',
   server: {
     androidScheme: 'https'

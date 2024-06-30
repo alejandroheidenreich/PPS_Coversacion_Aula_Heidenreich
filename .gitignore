@@ -71,3 +71,5 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+android/app/src/main/java/pps/con/aul/MainActivity.java
+android/app/src/main/java/pps/tab/din/MainActivity.java
